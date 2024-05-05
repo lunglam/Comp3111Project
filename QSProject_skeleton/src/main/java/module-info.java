@@ -8,6 +8,7 @@ module comp3111.qsproject {
     requires org.kordamp.bootstrapfx.core;
     requires javacsv;
     requires com.opencsv;
+    requires org.junit.jupiter.api;
 
     opens comp3111.qsproject to javafx.fxml;
     exports comp3111.qsproject;

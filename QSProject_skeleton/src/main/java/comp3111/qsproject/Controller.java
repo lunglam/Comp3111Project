@@ -31,6 +31,9 @@ public class Controller {
     @FXML
     public BarChart<String, Double> t1BarChart;
 
+
+    public BarChart<String, Double> t1BarChartA;
+
     @FXML
     public TableColumn<QSItem, String> t1Rank;
 
@@ -63,6 +66,14 @@ public class Controller {
 
     @FXML
     public Label t1PieChartLabel;
+    @FXML
+    public PieChart t1PieChartA;
+
+    @FXML
+    public ChoiceBox<String> t1PieChartChoiceBoxA;
+
+    @FXML
+    public Label t1PieChartLabelA;
 
     @FXML
     public ChoiceBox<String> t1BarChartChoiceBox;
@@ -72,6 +83,16 @@ public class Controller {
 
     @FXML
     public CategoryAxis t1BarChartTypeXaxis;
+
+
+    @FXML
+    public ChoiceBox<String> t1BarChartChoiceBoxA;
+
+    @FXML
+    public Label t1BarChartLabelA;
+
+    @FXML
+    public CategoryAxis t1BarChartTypeXaxisA;
 
     /* T2 Controller */
     @FXML
@@ -180,13 +201,26 @@ public class Controller {
         t1PieChartChoiceBox.setItems(stringPropertyList);
         t1PieChartChoiceBox.setValue("size");
         t1PieChartLabel.setText("");
+
+        t1PieChartChoiceBoxA.setItems(stringPropertyList);
+        t1PieChartChoiceBoxA.setValue("size");
+        t1PieChartLabelA.setText("");
+
         t1BarChartChoiceBox.setItems(stringPropertyList);
         t1BarChartChoiceBox.setValue("type");
         t1BarChartLabel.setText("");
 
+        t1BarChartChoiceBoxA.setItems(stringPropertyList);
+        t1BarChartChoiceBoxA.setValue("type");
+        t1BarChartLabelA.setText("");
+
 
         t1PieChartChoiceBox.setOnAction(this::handlePieChartChoiceBoxSelection);
         t1BarChartChoiceBox.setOnAction(this::handleBarChartChoiceBoxSelection);
+
+
+        t1PieChartChoiceBoxA.setOnAction(this::handlePieChartChoiceBoxASelection);
+        t1BarChartChoiceBoxA.setOnAction(this::handleBarChartChoiceBoxASelection);
 
         T1_onClickSearch();
         T1_onClickClear();
@@ -224,12 +258,27 @@ public class Controller {
 
         t1DataTable.getItems().clear();
         t1PieChart.getData().clear();
+
+        t1PieChartA.getData().clear();
+
         t1BarChart.getData().clear();
+
+        t1BarChartA.getData().clear();
+
         t1YearChoiceBox.setValue("2017");
         t1PieChartChoiceBox.setValue("size");
         t1PieChartLabel.setText("");
+
+        t1PieChartChoiceBoxA.setValue("size");
+        t1PieChartLabelA.setText("");
+
         t1BarChartChoiceBox.setValue("type");
         t1BarChartLabel.setText("");
+
+
+        t1BarChartChoiceBoxA.setValue("type");
+        t1BarChartLabelA.setText("");
+
         currentYear = "0";
 
     }
@@ -287,6 +336,14 @@ public class Controller {
                 t1BarChart.setData(t1.getBarChartData(t1BarChartChoiceBox.getValue()));
                 t1PieChartLabel.setText(t1PieChartChoiceBox.getValue() + " & score " + t1YearChoiceBox.getValue());
                 t1BarChartLabel.setText(t1BarChartChoiceBox.getValue() + " & score " + t1YearChoiceBox.getValue());
+
+                t1PieChartA.getData().clear();
+                t1BarChartA.getData().clear();
+                t1PieChartA.setData(t1.getPieChartDataRankA(t1PieChartChoiceBoxA.getValue()));
+                t1BarChartA.setData(t1.getBarChartDataRankA(t1BarChartChoiceBoxA.getValue()));
+                t1PieChartLabelA.setText(t1PieChartChoiceBoxA.getValue() + " & score " + t1YearChoiceBox.getValue() + " (Tier A)");
+                t1BarChartLabelA.setText(t1BarChartChoiceBoxA.getValue() + " & score " + t1YearChoiceBox.getValue() + " (Tier A)");
+
                 currentYear = selectedYear;
             }
 
@@ -374,6 +431,16 @@ public class Controller {
         }
     }
 
+    private void handlePieChartChoiceBoxASelection(ActionEvent event) {
+        String selectedChoice = t1PieChartChoiceBoxA.getValue();
+        // Update data based on the selected choice (fetch from DB, modify existing data, etc.)
+        if(t1!=null){
+            t1PieChartA.getData().clear();
+            t1PieChartA.setData(t1.getPieChartDataRankA(selectedChoice));
+            t1PieChartLabelA.setText(t1PieChartChoiceBoxA.getValue() + " & score " + t1YearChoiceBox.getValue() + " (Tier A)");
+        }
+    }
+
     /**
      * Handles the selection event for the bar chart choice box.
      * Updates the bar chart data based on the selected choice.
@@ -388,6 +455,16 @@ public class Controller {
             t1BarChart.getData().clear();
             t1BarChart.setData(t1.getBarChartData(selectedChoice));
             t1BarChartLabel.setText(t1BarChartChoiceBox.getValue() + " & score " + t1YearChoiceBox.getValue());
+        }
+    }
+
+    private void handleBarChartChoiceBoxASelection(ActionEvent event) {
+        String selectedChoice = t1BarChartChoiceBoxA.getValue();
+        // Update data based on the selected choice (fetch from DB, modify existing data, etc.)
+        if(t1!=null){
+            t1BarChartA.getData().clear();
+            t1BarChartA.setData(t1.getBarChartDataRankA(selectedChoice));
+            t1BarChartLabelA.setText(t1BarChartChoiceBoxA.getValue() + " & score " + t1YearChoiceBox.getValue() + " (Tier A)");
         }
     }
 
