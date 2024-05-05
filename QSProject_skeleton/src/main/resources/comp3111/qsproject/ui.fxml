@@ -33,11 +33,15 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="221.0" prefWidth="828.0">
                                     <children>
-                                        <Label alignment="CENTER" layoutX="239.0" layoutY="203.0" prefHeight="57.0" prefWidth="241.0" text="Project Title" textOverrun="CLIP" wrapText="true" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="239.0">
+                                        <Label alignment="CENTER" layoutX="239.0" layoutY="203.0" prefHeight="57.0" prefWidth="241.0" text="QSProject" textOverrun="CLIP" wrapText="true" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="239.0">
                                             <font>
                                                 <Font name="System Bold Italic" size="46.0" />
                                             </font></Label>
                                         <Label layoutX="172.0" layoutY="238.0" prefHeight="204.0" prefWidth="366.0" text="Decision-making Visualization System for Higher Education University Selection for Students " textAlignment="CENTER" textOverrun="CLIP" wrapText="true" AnchorPane.leftAnchor="172.0" AnchorPane.rightAnchor="181.0">
+                                            <font>
+                                                <Font size="26.0" />
+                                            </font></Label>
+                                        <Label layoutX="400.0" layoutY="438.0" prefHeight="204.0" prefWidth="366.0" text="Lam Pak Lung 20869543 " textAlignment="CENTER" textOverrun="CLIP" wrapText="true" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="250.0">
                                             <font>
                                                 <Font size="26.0" />
                                             </font></Label>
