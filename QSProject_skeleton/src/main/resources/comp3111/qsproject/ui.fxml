@@ -151,6 +151,46 @@
                                                         </AnchorPane>
                                                     </content>
                                                 </Tab>
+                                                <Tab fx:id="t1PieChartTabRankA" text="Pie Chart Tier A">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                            <children>
+                                                                <PieChart fx:id="t1PieChartA" layoutY="56.0" onInputMethodTextChanged="#T1_onClickSearch" prefHeight="348.0" prefWidth="719.0" />
+                                                                <Label fx:id="t1PieChartLabelA" layoutX="241.0" layoutY="17.0" text="researchOutput &amp; score" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="409.0">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="18.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <ChoiceBox fx:id="t1PieChartChoiceBoxA" layoutX="514.0" layoutY="15.0" prefWidth="150.0" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </content>
+                                                </Tab>
+                                                <Tab fx:id="t1BarChartTabA" text="Bar Chart Tier A">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                            <children>
+                                                                <BarChart fx:id="t1BarChartA" alternativeColumnFillVisible="true" layoutX="-1.0" layoutY="41.0" legendVisible="false" prefHeight="368.0" prefWidth="828.0">
+                                                                    <xAxis>
+                                                                        <CategoryAxis fx:id="t1BarChartTypeXaxisA" animated="false" endMargin="3.0" side="BOTTOM" startMargin="3.0">
+                                                                            <tickLabelFont>
+                                                                                <Font size="7.0" />
+                                                                            </tickLabelFont></CategoryAxis>
+                                                                    </xAxis>
+                                                                    <yAxis>
+                                                                        <NumberAxis fx:id="t1BarChartTypeYaxisA" label="Avg. Score" side="LEFT" />
+                                                                    </yAxis>
+                                                                </BarChart>
+                                                                <Label fx:id="t1BarChartLabelA" layoutX="311.0" layoutY="18.0" text="Type &amp; Score" AnchorPane.rightAnchor="409.0">
+                                                                    <font>
+                                                                        <Font name="System Bold" size="18.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <ChoiceBox fx:id="t1BarChartChoiceBoxA" layoutX="513.0" layoutY="17.0" prefWidth="150.0" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </content>
+                                                </Tab>
                                             </tabs>
                                         </TabPane>
                               <Button fx:id="t1ClearButton" layoutX="406.0" layoutY="143.0" mnemonicParsing="false" onAction="#T1_onClickClear" text="Reset" />
