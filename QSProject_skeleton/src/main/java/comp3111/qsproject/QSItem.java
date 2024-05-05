@@ -117,16 +117,16 @@ public class QSItem {
      * @param sd   The standard deviation of scores for the dataset.
      *
      *    grading system:
-     *         2sd -> A+
-     *         1.6sd -> A
-     *         1sd -> A-
-     *         0.6sd -> B+
-     *         0sd -> B
-     *         -0.6sd -> B-
-     *         -1sd -> C+
-     *         -1.6sd -> C
-     *         -2sd -> C-
-     *         -10sd -> D
+     *         >2sd -> A+
+     *         >1.6sd -> A
+     *         >1sd -> A-
+     *         >0.6sd -> B+
+     *         >0sd -> B
+     *         >-0.6sd -> B-
+     *         >-1sd -> C+
+     *         >-1.6sd -> C
+     *         >-2sd -> C-
+     *         below 2sd -> D
      */
     public void setGrade(double mean, double sd) {
         double diff = getDoubleScore()-mean;
