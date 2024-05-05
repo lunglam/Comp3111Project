@@ -209,6 +209,12 @@ public class Controller {
          */
     }
 
+    /**
+     * Clears the data and resets the page for Task 1.
+     * This method clears the data table, pie chart, and bar chart.
+     * It also resets the choice boxes and labels to their default values.
+     * Finally, it sets the current year to \"0\".
+     */
     @FXML
     private void T1_onClickClear() {
         /*
@@ -228,6 +234,16 @@ public class Controller {
 
     }
 
+    /**
+     * Handles the search action for Task 1.
+     * When the search button is clicked:
+     * 1. Fetches the selected year from the choice box.
+     * 2. Clears previous data in the data table, pie chart, and bar chart.
+     * 3. Initializes an analyzer (presumably `T1Analysis`).
+     * 4. Updates the table view with information about universities.
+     * 5. Updates the pie chart to display the sum score of the selected property (based on `t1PieChartChoiceBox`).
+     * 6. Updates the bar chart to show the average score of the selected property (based on `t1BarChartChoiceBox`)
+     */
     @FXML
     private void T1_onClickSearch() {
         /*
@@ -276,6 +292,14 @@ public class Controller {
 
     }
 
+    /**
+     * Custom TableCell that displays a hyperlink.
+     * When clicked, it opens the specified URL using the HostServices provided.
+     *
+     * @param <S> The type of the TableView row item.
+     * @param <T> The type of the cell value (usually String or URL).
+     */
+
     class HyperlinkTableCell<S, T> extends TableCell<S, T> {
         private final Hyperlink hyperlink;
         private final HostServices hostServices;
@@ -300,6 +324,14 @@ public class Controller {
             }
         }
     }
+
+    /**
+     * Custom TableCell that displays a hyperlink with the text "logo".
+     * When clicked, it opens the specified URL using the HostServices provided.
+     *
+     * @param <S> The type of the TableView row item.
+     * @param <T> The type of the cell value (usually String or URL).
+     */
 
     class LogoHyperlinkTableCell<S, T> extends TableCell<S, T> {
         private final Hyperlink hyperlink;
@@ -326,7 +358,12 @@ public class Controller {
         }
     }
 
-
+    /**
+     * Handles the selection event for the pie chart choice box.
+     * Updates the pie chart data based on the selected choice.
+     *
+     * @param event The ActionEvent triggered by the choice box selection.
+     */
     private void handlePieChartChoiceBoxSelection(ActionEvent event) {
         String selectedChoice = t1PieChartChoiceBox.getValue();
         // Update data based on the selected choice (fetch from DB, modify existing data, etc.)
@@ -336,6 +373,13 @@ public class Controller {
             t1PieChartLabel.setText(t1PieChartChoiceBox.getValue() + " & score " + t1YearChoiceBox.getValue());
         }
     }
+
+    /**
+     * Handles the selection event for the bar chart choice box.
+     * Updates the bar chart data based on the selected choice.
+     *
+     * @param event The ActionEvent triggered by the choice box selection.
+     */
 
     private void handleBarChartChoiceBoxSelection(ActionEvent event) {
         String selectedChoice = t1BarChartChoiceBox.getValue();
