@@ -26,6 +26,16 @@ public class QSList {
     public static ObservableList<String> region = FXCollections.observableArrayList();
     public static ObservableList<String> country = FXCollections.observableArrayList();
 
+
+    /**
+     * Initializes the data by loading information from a CSV file.
+     * This method performs the following steps:
+     * 1. Loads data from the specified CSV file into a list.
+     * 2. Collects unique values for university, type, region, and country.
+     *
+     * @throws RuntimeException if any I/O or validation exception occurs during CSV processing.
+     */
+
     public static void initialize() {
         /*
             Your Code Here.
