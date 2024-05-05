@@ -225,6 +225,18 @@ public class T1Analysis {
         return pieChartData;
     }
 
+
+    /**
+     *
+     * This function has same structure as above function.
+     * But it gets data only for Tier A University.
+     *
+     * Retrieves PieChart data based on the specified search criteria.
+     * The PieChart displays the sum of scores for universities grouped by the chosen category.
+     *
+     * @param searchName The category for which to retrieve data ("country", "region", or "size").
+     * @return An ObservableList of PieChart.Data representing the summed scores for each category.
+     */
     ObservableList<PieChart.Data> getPieChartDataRankA(String searchName) {
         ObservableList<PieChart.Data> pieChartData= FXCollections.observableArrayList();
         /*
@@ -491,7 +503,16 @@ public class T1Analysis {
     }
 
 
-
+    /**
+     *
+     * This function has same structure as above function.
+     * But it gets data only for Tier A University.
+     *
+     * Retrieves bar chart data for a given search criteria.
+     *
+     * @param searchName The search criteria (e.g., "country", "region", or "size").
+     * @return An ObservableList of XYChart.Series containing the average scores based on the search criteria.
+     */
     ObservableList<XYChart.Series<String, Double>> getBarChartDataRankA(String searchName) {
         ObservableList<XYChart.Series<String, Double>> seriesList = FXCollections.observableArrayList();
         XYChart.Series<String, Double> barData= new XYChart.Series<>();
