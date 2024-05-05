@@ -491,4 +491,133 @@ public class T1Analysis {
     }
 
 
+
+    ObservableList<XYChart.Series<String, Double>> getBarChartDataRankA(String searchName) {
+        ObservableList<XYChart.Series<String, Double>> seriesList = FXCollections.observableArrayList();
+        XYChart.Series<String, Double> barData= new XYChart.Series<>();
+        /*
+            Your Code Here.
+            Return the Bar Chart Data.
+            Bar Chart shows the Avg. of the score.
+            For example, when the user chooses "size", which means the searchName will be "size"
+            And Return an XYChart.Series with XYChart.Data
+            [
+                key: "L", value: the Average score of the Large size universities,
+                key: "M", value: the Average score of the Middle size universities,
+                key: "S", value: the Average score of the Small size universities,
+            ]
+         */
+
+        Map<String, Double> scoresMap = new HashMap<>();
+        Map<String, Integer> occurrencesMap = new HashMap<>();
+        double score = 0.0;
+        switch (searchName) {
+            case "country":
+                for(int i=0; i<tableListRankA.size();i++){
+                    if(tableListRankA.get(i).getCountry()!=null&&tableListRankA.get(i).getScore()!=null){
+                        String country = tableListRankA.get(i).getCountry();
+                        try {
+                            score = Double.parseDouble(tableListRankA.get(i).getScore());
+                            scoresMap.put(country, scoresMap.getOrDefault(country, 0.0) + score);
+                            occurrencesMap.put(country, occurrencesMap.getOrDefault(country, 0) + 1);
+                        } catch (NumberFormatException e) {
+
+                        }
+                    }
+
+                }
+
+                for (Map.Entry<String, Double> entry : scoresMap.entrySet()) {
+                    double temp = entry.getValue()/(occurrencesMap.get(entry.getKey()));
+                    barData.getData().add(new XYChart.Data<>(entry.getKey(), temp));
+                }
+                break;
+            case "region":
+                for(int i=0; i<tableListRankA.size();i++){
+                    if(tableListRankA.get(i).getRegion()!=null&&tableListRankA.get(i).getScore()!=null){
+                        String region = tableListRankA.get(i).getRegion();
+                        try {
+                            score = Double.parseDouble(tableListRankA.get(i).getScore());
+                            scoresMap.put(region, scoresMap.getOrDefault(region, 0.0) + score);
+                            occurrencesMap.put(region, occurrencesMap.getOrDefault(region, 0) + 1);
+                        } catch (NumberFormatException e) {
+
+                        }
+                    }
+
+                }
+
+                for (Map.Entry<String, Double> entry : scoresMap.entrySet()) {
+                    double temp = entry.getValue()/(occurrencesMap.get(entry.getKey()));
+                    barData.getData().add(new XYChart.Data<>(entry.getKey(), temp));
+                }
+                break;
+            case "size":
+                for(int i=0; i<tableListRankA.size();i++){
+                    if(tableListRankA.get(i).getSize()!=null&&tableListRankA.get(i).getScore()!=null){
+                        String size = tableListRankA.get(i).getSize();
+                        try {
+                            score = Double.parseDouble(tableListRankA.get(i).getScore());
+                            scoresMap.put(size, scoresMap.getOrDefault(size, 0.0) + score);
+                            occurrencesMap.put(size, occurrencesMap.getOrDefault(size, 0) + 1);
+                        } catch (NumberFormatException e) {
+
+                        }
+                    }
+
+                }
+
+                for (Map.Entry<String, Double> entry : scoresMap.entrySet()) {
+                    double temp = entry.getValue()/(occurrencesMap.get(entry.getKey()));
+                    barData.getData().add(new XYChart.Data<>(entry.getKey(), temp));
+                }
+                break;
+            case "type":
+                for(int i=0; i<tableListRankA.size();i++){
+                    if(tableListRankA.get(i).getType()!=null&&tableListRankA.get(i).getScore()!=null){
+                        String type = tableListRankA.get(i).getType();
+                        try {
+                            score = Double.parseDouble(tableListRankA.get(i).getScore());
+                            scoresMap.put(type, scoresMap.getOrDefault(type, 0.0) + score);
+                            occurrencesMap.put(type, occurrencesMap.getOrDefault(type, 0) + 1);
+                        } catch (NumberFormatException e) {
+
+                        }
+                    }
+
+                }
+
+                for (Map.Entry<String, Double> entry : scoresMap.entrySet()) {
+                    double temp = entry.getValue()/(occurrencesMap.get(entry.getKey()));
+                    barData.getData().add(new XYChart.Data<>(entry.getKey(), temp));
+                }
+                break;
+            case "researchOutput":
+                for(int i=0; i<tableListRankA.size();i++){
+                    if(tableListRankA.get(i).getResearchOutput()!=null&&tableListRankA.get(i).getScore()!=null){
+                        String ro = tableListRankA.get(i).getResearchOutput();
+                        try {
+                            score = Double.parseDouble(tableListRankA.get(i).getScore());
+                            scoresMap.put(ro, scoresMap.getOrDefault(ro, 0.0) + score);
+                            occurrencesMap.put(ro, occurrencesMap.getOrDefault(ro, 0) + 1);
+                        } catch (NumberFormatException e) {
+
+                        }
+                    }
+
+                }
+
+                for (Map.Entry<String, Double> entry : scoresMap.entrySet()) {
+                    double temp = entry.getValue()/(occurrencesMap.get(entry.getKey()));
+                    barData.getData().add(new XYChart.Data<>(entry.getKey(), temp));
+                }
+                break;
+        }
+
+
+        seriesList.add(barData);
+        return seriesList;
+    }
+
+
 }
