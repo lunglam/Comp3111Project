@@ -106,17 +106,28 @@ public class QSItem {
     }
 
 
-    //grading system
-    //    2sd -> A+
-    //    1.6sd -> A
-    //    1sd -> A-
-    //    0.6sd -> B+
-    //    0sd -> B
-    //    -0.6sd -> B-
-    //    -1sd -> C+
-    //    -1.6sd -> C
-    //    -2sd -> C-
-    //    -10sd -> D
+
+
+    /**
+     * Sets the grade for a QSItem based on the provided mean and standard deviation.
+     * The grade is determined by comparing the difference between the item's score
+     * and the mean score with multiples of the standard deviation.
+     *
+     * @param mean The mean score for the dataset.
+     * @param sd   The standard deviation of scores for the dataset.
+     *
+     *    grading system:
+     *         2sd -> A+
+     *         1.6sd -> A
+     *         1sd -> A-
+     *         0.6sd -> B+
+     *         0sd -> B
+     *         -0.6sd -> B-
+     *         -1sd -> C+
+     *         -1.6sd -> C
+     *         -2sd -> C-
+     *         -10sd -> D
+     */
     public void setGrade(double mean, double sd) {
         double diff = getDoubleScore()-mean;
         if(getDoubleScore()>0){

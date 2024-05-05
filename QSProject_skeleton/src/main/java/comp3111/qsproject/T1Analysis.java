@@ -13,6 +13,14 @@ public class T1Analysis {
 
     public ObservableList<QSItem> tableListRankA = FXCollections.observableArrayList();
     public double standardDeviation;
+
+    /**
+     * Represents an analysis of QSItem data for a specific year.
+     * The analysis includes calculating statistics such as mean and standard deviation
+     * for the scores, as well as categorizing universities based on their grades.
+     *
+     * @param year The year for which the analysis is performed.
+     */
     T1Analysis (String year) {
         /*
             Your Code Here.
@@ -78,6 +86,14 @@ public class T1Analysis {
     ObservableList<QSItem> getTableList() {
         return tableList;
     }
+
+    /**
+     * Retrieves PieChart data based on the specified search criteria.
+     * The PieChart displays the sum of scores for universities grouped by the chosen category.
+     *
+     * @param searchName The category for which to retrieve data ("country", "region", or "size").
+     * @return An ObservableList of PieChart.Data representing the summed scores for each category.
+     */
 
     ObservableList<PieChart.Data> getPieChartData(String searchName) {
         ObservableList<PieChart.Data> pieChartData= FXCollections.observableArrayList();
@@ -339,6 +355,14 @@ public class T1Analysis {
         return pieChartData;
     }
 
+
+    /**
+     * Retrieves bar chart data based on the specified search criteria.
+     * The bar chart displays the average score for universities grouped by the chosen category.
+     *
+     * @param searchName The category for which to retrieve data ("country", "region", or "size").
+     * @return An ObservableList of XYChart.Series representing the average scores for each category.
+     */
     ObservableList<XYChart.Series<String, Double>> getBarChartData(String searchName) {
         ObservableList<XYChart.Series<String, Double>> seriesList = FXCollections.observableArrayList();
         XYChart.Series<String, Double> barData= new XYChart.Series<>();
